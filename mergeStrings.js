@@ -1,3 +1,4 @@
+//merges two strings in an ordered manner
 function find(a, b) {
     var i,
         l = Math.min(a.length, b.length),
