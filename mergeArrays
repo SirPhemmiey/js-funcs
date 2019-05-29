@@ -1,0 +1,32 @@
+//code to merge arrays withouth repetition
+
+//using Set
+// function mergeArrays(...arrays) {
+//   let jointArray = [];
+//   let returnedArray = [];
+//   arrays.forEach(array => {
+//     jointArray.push(...array);
+//   });
+//   returnedArray = [...new Set(jointArray)];
+//   return returnedArray;
+// }
+
+//using Reduce
+function mergeArrays(...arrays) {
+  let jointArray = [];
+  arrays.forEach(array => {
+    jointArray.push(...array);
+  });
+  const uniqueArray = jointArray.reduce((newArray, item) => {
+    if (newArray.includes(item)) {
+      return newArray;
+    } else {
+      return [...newArray, item];
+    }
+  }, []);
+  return uniqueArray;
+}
+
+console.log(
+  mergeArrays([1, 2, 3, 3, 3], [1, 4, 5, 2], [10, 20, 20, 19, 18, 19, 11])
+);
